@@ -169,7 +169,18 @@ local config = {
     -- end,
 
     -- Add overrides for LSP server settings, the keys are the name of the server
+    skip_setup = { "dartls" },
     ["server-settings"] = {
+      dartls = {
+        -- any changes you want to make to the LSP setup, for example
+        color = {
+          enabled = true,
+        },
+        settings = {
+          showTodos = true,
+          completeFunctionCalls = true,
+        },
+      },
       -- example for addings schemas to yamlls
       -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
       --   settings = {
@@ -209,6 +220,16 @@ local config = {
   -- Configure plugins
   plugins = {
     init = {
+      {
+        "akinsho/flutter-tools.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        after = "mason-lspconfig.nvim", -- make sure to load after mason-lspconfig
+        config = function()
+          require("flutter-tools").setup {
+            lsp = astronvim.lsp.server_settings "dartls", -- get the server settings and built in capabilities/on_attach
+          }
+        end,
+      },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
@@ -251,6 +272,7 @@ local config = {
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
+      ensure_installed = { "dartls" },
       -- ensure_installed = { "sumneko_lua" },
     },
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
