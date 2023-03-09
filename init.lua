@@ -24,7 +24,7 @@ local config = {
     -- },
   },
   -- Set colorscheme to use
-  colorscheme = 'PaperColor',
+  colorscheme = 'everforest',
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -221,6 +221,7 @@ local config = {
   plugins = {
     init = {
       'NLKNguyen/papercolor-theme',
+      'sainnhe/everforest',
       {
         "akinsho/flutter-tools.nvim",
         requires = "nvim-lua/plenary.nvim",
