@@ -24,7 +24,8 @@ local config = {
     -- },
   },
   -- Set colorscheme to use
-  colorscheme = 'everforest',
+  colorscheme = 'kanagawa',
+  -- colorscheme = 'everforest',
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -222,6 +223,7 @@ local config = {
     init = {
       'NLKNguyen/papercolor-theme',
       'sainnhe/everforest',
+      'rebelot/kanagawa.nvim',
       {
         "akinsho/flutter-tools.nvim",
         requires = "nvim-lua/plenary.nvim",
