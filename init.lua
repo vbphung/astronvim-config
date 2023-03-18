@@ -23,7 +23,10 @@ return {
     virtual_text = true,
     underline = true,
   },
-  plugins = { 'nonetallt/vim-neon-dark', },
+  plugins = {
+    'nonetallt/vim-neon-dark',
+    'akinsho/flutter-tools.nvim',
+  },
   lsp = {
     -- customize lsp formatting options
     formatting = {
@@ -47,7 +50,21 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      'dartls',
+    },
+    setup_handlers = {
+      dartls = function(_, opts) require("flutter-tools").setup { lsp = opts } end,
+    },
+    config = {
+      dartls = {
+        color = {
+          enabled = true,
+        },
+        settings = {
+          showTodos = true,
+          completeFunctionCalls = true,
+        },
+      },
     },
   },
   -- Configure require("lazy").setup() options
