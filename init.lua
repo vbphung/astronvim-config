@@ -17,12 +17,13 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = 'neon-dark',
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
+  plugins = { 'nonetallt/vim-neon-dark', },
   lsp = {
     -- customize lsp formatting options
     formatting = {
