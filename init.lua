@@ -26,6 +26,13 @@ return {
   plugins = {
     'nonetallt/vim-neon-dark',
     'akinsho/flutter-tools.nvim',
+    "p00f/clangd_extensions.nvim",
+    {
+      "williamboman/mason-lspconfig.nvim",
+      opts = {
+        ensure_installed = { "clangd" },
+      },
+    },
   },
   lsp = {
     -- customize lsp formatting options
@@ -54,6 +61,7 @@ return {
     },
     setup_handlers = {
       dartls = function(_, opts) require("flutter-tools").setup { lsp = opts } end,
+      clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end
     },
     config = {
       dartls = {
@@ -63,6 +71,11 @@ return {
         settings = {
           showTodos = true,
           completeFunctionCalls = true,
+        },
+      },
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
         },
       },
     },
