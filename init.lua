@@ -17,13 +17,14 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = 'neon-dark',
+  colorscheme = 'seoul256',
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
   plugins = {
+    'junegunn/seoul256.vim',
     'nonetallt/vim-neon-dark',
     'akinsho/flutter-tools.nvim',
     "p00f/clangd_extensions.nvim",
